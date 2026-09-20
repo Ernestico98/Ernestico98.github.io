@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ernesto David Peña Herrera — Software & AI Engineer</title>
+    <meta
+      name="description"
+      content="Software & AI Engineer in Barcelona. Production ML systems, high-throughput document pipelines and algorithms. IOI and ICPC World Finals medalist."
+    />
+    <meta name="author" content="Ernesto David Peña Herrera" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ernesto David Peña Herrera — Software & AI Engineer" />
+    <meta
+      property="og:description"
+      content="Software & AI Engineer in Barcelona. Production ML systems, high-throughput document pipelines and algorithms."
+    />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply the stored theme before first paint to avoid a flash of the wrong theme.
+      ;(() => {
+        const stored = localStorage.getItem('theme')
+        const dark = stored
+          ? stored === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.classList.toggle('dark', dark)
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

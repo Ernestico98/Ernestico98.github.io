@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+/* Manual dark mode: the <html> element gets a .dark class from ThemeToggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the sticky header. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-white text-zinc-800 antialiased;
+    @apply dark:bg-zinc-950 dark:text-zinc-300;
+  }
+
+  ::selection {
+    @apply bg-indigo-200 text-indigo-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-indigo-500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
