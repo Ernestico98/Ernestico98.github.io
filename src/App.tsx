@@ -1,4 +1,5 @@
 import { Nav } from './components/Nav'
+import { useHashScroll } from './hooks/useHashScroll'
 import { profile } from './data/cv'
 import { Contact } from './sections/Contact'
 import { Education } from './sections/Education'
@@ -9,6 +10,8 @@ import { Recognition } from './sections/Recognition'
 import { Stack } from './sections/Stack'
 
 export default function App() {
+  useHashScroll()
+
   return (
     <>
       <Nav />
