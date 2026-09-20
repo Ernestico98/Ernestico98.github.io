@@ -8,8 +8,6 @@ export const profile = {
   location: 'Barcelona, Spain',
   summary:
     'Software Engineer with 5+ years of experience building production ML systems, high-throughput data pipelines, and algorithmic solutions. Specialized in document AI, backend development, and cloud infrastructure (AWS). International competitive programming medalist (IOI, ICPC World Finals) with strong theoretical foundations in algorithms and computer science.',
-  email: 'ernestodavidph@gmail.com',
-  phone: '+34 624 192 233',
   github: 'https://github.com/ernestico98',
   linkedin: 'https://www.linkedin.com/in/ernestodavidph',
 }
@@ -20,6 +18,8 @@ export type Experience = {
   companyUrl?: string
   location: string
   period: string
+  /** Path under public/logos. Falls back to a monogram when absent. */
+  logo?: string
   bullets: string[]
 }
 
@@ -29,11 +29,12 @@ export const experience: Experience[] = [
     company: 'Invofox (YC S22)',
     companyUrl: 'https://www.invofox.com',
     location: 'Madrid, Spain · Hybrid',
+    logo: '/logos/invofox.svg',
     period: '01/2023 — Present',
     bullets: [
-      'Contributed to building a production pipeline handling 550K+ documents/day at 100 docs/sec throughput with 15s median end-to-end latency.',
+      'Contributed to building a production pipeline handling 550K+ documents/day.',
       'Built and maintained scalable APIs and services supporting the document processing platform.',
-      'Designed a graph-theoretic solver with A* search augmented by ML-based semantic heuristics, reducing search space by 70% and pipeline runtime by 60%.',
+      'Designed a graph-theoretic solver with A* search augmented by ML-based semantic heuristics, reducing search space and pipeline runtime.',
       'Contributed to the design and implementation of a microservices architecture enabling high-volume document processing.',
       'Integrated commercial OCR engines and LLMs with custom post-processing, and built a benchmarking framework comparing OCR, algorithmic, LLM and hybrid approaches on throughput, latency and accuracy.',
       'Enhanced platform reliability through provider failover strategies, recovery procedures and observability monitoring.',
@@ -43,6 +44,7 @@ export const experience: Experience[] = [
     role: 'Machine Learning Intern',
     company: 'Docet TI',
     location: 'Barcelona, Spain · Remote',
+    logo: '/logos/docet.svg',
     period: '07/2022 — 05/2023',
     bullets: [
       'Integrated Deep Learning models (GANs, Diffusion Models) for automatic image generation in a content-creation pipeline.',
@@ -53,6 +55,7 @@ export const experience: Experience[] = [
     role: 'Teaching Assistant & Researcher',
     company: 'Universidad de Oriente',
     location: 'Santiago de Cuba, Cuba',
+    logo: '/logos/uo.svg',
     period: '01/2022 — 07/2022',
     bullets: [
       'Lectured Algorithms Design & Analysis (Divide and Conquer, Greedy, Complexity) and Discrete Mathematics (Number Theory, Graph Theory, Combinatorics).',
@@ -64,9 +67,10 @@ export const experience: Experience[] = [
     company: 'Encord Technologies (YC W21)',
     companyUrl: 'https://encord.com',
     location: 'United Kingdom · Remote',
+    logo: '/logos/encord.svg',
     period: '06/2020 — 12/2021',
     bullets: [
-      'Designed algorithmic procedures to accelerate automatic data annotation (YC selection, $12.5M Series A).',
+      'Designed algorithmic procedures to accelerate automatic data annotation.',
       'Optimized ML pipelines across Computer Vision and Computational Geometry projects.',
     ],
   },
@@ -111,13 +115,13 @@ export const awards: Award[] = [
     year: '2018 · 2019',
   },
   {
-    title: 'ICPC Caribbean Finals',
-    detail: 'Silver Medal',
+    title: 'ICPC Latin America Regional Finals',
+    detail: 'Silver Medal in 2017 and 2018',
     year: '2017 · 2018',
   },
   {
-    title: 'Caribbean Informatics Olympiad (CIIC)',
-    detail: 'Gold & Silver Medal',
+    title: 'Ibero-American Informatics Competition (CIIC)',
+    detail: 'Gold Medal in 2016 and Silver Medal in 2015',
     year: '2015 · 2016',
   },
   {
@@ -127,60 +131,40 @@ export const awards: Award[] = [
   },
 ]
 
-export const stack: { group: string; items: string[] }[] = [
-  { group: 'Languages', items: ['Python', 'C++', 'TypeScript', 'JavaScript'] },
-  {
-    group: 'Frameworks & Tools',
-    items: ['Flask', 'Django', 'Node.js', 'Laravel', 'REST APIs', 'Docker', 'Git', 'MongoDB'],
+/** Shown only after the visitor expands "Show more". */
+export const moreAwards: Award[] = [
+    {
+    title: 'Cuban National Mathematics Olympiad',
+    detail: 'Silver Medal — university level',
+    year: '2020',
   },
   {
-    group: 'Cloud (AWS)',
-    items: ['S3', 'Lambda', 'SNS', 'SQS', 'SES', 'CloudWatch', 'OpenSearch', 'CDK'],
+    title: 'Cuban National Olympiad in Informatics (OIC)',
+    detail: 'Gold Medal in 2015 and 2016, Silver Medal in 2014 — high school level',
+    year: '2014 — 2016',
   },
   {
-    group: 'Technical areas',
-    items: [
-      'Algorithms & Data Structures',
-      'Machine Learning',
-      'LLMs / GenAI',
-      'OCR',
-      'Computer Vision',
-      'NLP',
-      'Computational Geometry',
-    ],
+    title: 'Cuban National Mathematics Olympiad',
+    detail: 'Gold Medal in 2011 and 2012 — secondary school level',
+    year: '2011 · 2012',
   },
 ]
 
-export type Project = {
-  name: string
-  description: string
-  tags: string[]
-  url?: string
-}
-
-// Curated by hand — add or remove entries freely.
-export const projects: Project[] = [
-  {
-    name: 'PASCAL-like Compiler',
-    description:
-      'Full compiler for a PASCAL-like language written from scratch in C++: lexer, recursive-descent parser, semantic analysis and code generation.',
-    tags: ['C++', 'Compilers', 'Parsing'],
-    url: 'https://github.com/Ernestico98/PASCAL-like-compiler',
-  },
-  {
-    name: 'ML Bot Bootcamp',
-    description:
-      'Machine learning bot built for the Research Methodologies & Capstone Project bootcamp at Harbour.Space University.',
-    tags: ['Python', 'Machine Learning'],
-    url: 'https://github.com/Ernestico98/ml_bot_bootcamp',
-  },
-  {
-    name: 'Data Storages App',
-    description:
-      'Application exploring different storage engines and query patterns, built for the Data Storages course.',
-    tags: ['Python', 'Databases'],
-    url: 'https://github.com/Ernestico98/data-storages-app',
-  },
+/** Logos shown in the scrolling banner above the Stack tags. */
+export const stackLogos: { name: string; file: string }[] = [
+  { name: 'Python', file: 'python.svg' },
+  { name: 'C++', file: 'cplusplus.svg' },
+  { name: 'TypeScript', file: 'typescript.svg' },
+  { name: 'JavaScript', file: 'javascript.svg' },
+  { name: 'React', file: 'react.svg' },
+  { name: 'Node.js', file: 'nodedotjs.svg' },
+  { name: 'Django', file: 'django.svg' },
+  { name: 'Flask', file: 'flask.svg' },
+  { name: 'Laravel', file: 'laravel.svg' },
+  { name: 'AWS', file: 'aws.svg' },
+  { name: 'Docker', file: 'docker.svg' },
+  { name: 'MongoDB', file: 'mongodb.svg' },
+  { name: 'Git', file: 'git.svg' },
 ]
 
 export const sections = [
@@ -189,6 +173,4 @@ export const sections = [
   { id: 'education', label: 'Education' },
   { id: 'recognition', label: 'Recognition' },
   { id: 'stack', label: 'Stack' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' },
 ] as const

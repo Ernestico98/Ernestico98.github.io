@@ -19,6 +19,19 @@ All content lives in [`src/data/cv.ts`](src/data/cv.ts) — profile, experience,
 education, awards, stack and projects. The components in `src/sections/` only
 render it, so updating the CV means editing that one file.
 
+## Company logos
+
+`public/logos/` holds the marks shown on the experience cards:
+
+| File | Source |
+| ---- | ------ |
+| `invofox.svg` | invofox.com favicon |
+| `encord.svg` | encord.com favicon |
+| `docet.svg` | docet.ai, recovered from the Wayback Machine (the site is offline) |
+| `uo.svg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Escudo_de_la_Universidad_de_Oriente_(Santiago_de_Cuba).svg), CC BY-SA 4.0 by FiroGV |
+
+Companies without a file fall back to an initial-letter monogram.
+
 ## Deployment
 
 Every push to `main` triggers `.github/workflows/deploy.yml`, which builds the
