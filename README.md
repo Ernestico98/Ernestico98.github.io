@@ -2,7 +2,7 @@
 
 Personal site — Vite + React + TypeScript + Tailwind CSS, deployed to GitHub Pages.
 
-Live: https://ernestico98.github.io
+Live: https://ernestodavidph.com
 
 ## Development
 
@@ -37,20 +37,19 @@ Companies without a file fall back to an initial-letter monogram.
 Every push to `main` triggers `.github/workflows/deploy.yml`, which builds the
 site and publishes `dist/` to GitHub Pages. No `gh-pages` branch involved.
 
-## Custom domain (ernestodavidph.com)
+## Custom domain
 
-Once the domain is registered:
+The site is served from **ernestodavidph.com**. `public/CNAME` carries the
+domain into the published artifact, and the DNS lives in Cloudflare:
 
-1. Create `public/CNAME` containing a single line: `ernestodavidph.com`
-2. At the registrar's DNS, add the GitHub Pages apex records:
+| Type  | Name  | Value                   | Proxy    |
+| ----- | ----- | ----------------------- | -------- |
+| A     | `@`   | `185.199.108.153`       | DNS only |
+| A     | `@`   | `185.199.109.153`       | DNS only |
+| A     | `@`   | `185.199.110.153`       | DNS only |
+| A     | `@`   | `185.199.111.153`       | DNS only |
+| CNAME | `www` | `ernestico98.github.io` | DNS only |
 
-   | Type  | Name  | Value                   |
-   | ----- | ----- | ----------------------- |
-   | A     | `@`   | `185.199.108.153`       |
-   | A     | `@`   | `185.199.109.153`       |
-   | A     | `@`   | `185.199.110.153`       |
-   | A     | `@`   | `185.199.111.153`       |
-   | CNAME | `www` | `ernestico98.github.io.` |
-
-3. Repo → Settings → Pages → Custom domain → `ernestodavidph.com`, then tick
-   **Enforce HTTPS** once the certificate is issued (can take up to ~24h).
+The records must stay **DNS only** (grey cloud). Proxied through Cloudflare,
+GitHub cannot reach the domain to validate it, so it never issues the
+certificate and Enforce HTTPS stays disabled.
