@@ -36,7 +36,14 @@
 }
 
 /* Infinite logo ticker: the track holds two identical copies of the list, so
-   shifting it by half its width loops seamlessly. */
+   shifting it by half its width loops seamlessly. Slots are fixed-size, which
+   makes the track a known width: 1856px on narrow screens (56px slots, 16px
+   gaps) and 2464px from 40rem up (64px slots, 32px gaps). Each breakpoint
+   gets the duration that keeps half of that at ~31px/s.
+
+   will-change keeps the row on its own compositor layer — without it the edge
+   mask can force a main-thread repaint every frame on mobile, which shows up
+   as stutter. */
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -47,7 +54,16 @@
 }
 
 .marquee-track {
-  animation: marquee-scroll 32s linear infinite;
+  /* Narrow screens use tighter slots, so the track is shorter and needs a
+     shorter duration to keep the same ~31px/s. */
+  animation: marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 40rem) {
+  .marquee-track {
+    animation-duration: 40s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
