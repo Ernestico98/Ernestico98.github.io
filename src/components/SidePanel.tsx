@@ -1,3 +1,4 @@
+import ernestoPhoto from '../assets/ernesto.jpg'
 import { profile } from '../data/cv'
 
 // No email here on purpose: a mailto on a public page gets harvested by spam
@@ -32,7 +33,7 @@ export function SidePanel() {
           from lg it becomes the stacked right-hand column. */}
       <div className="flex flex-wrap items-center gap-x-5 gap-y-4 rounded-2xl border border-zinc-200 p-5 lg:flex-col lg:items-start lg:gap-0 dark:border-zinc-800">
         <img
-          src="/img/ernesto.jpg"
+          src={ernestoPhoto}
           alt={profile.name}
           width={224}
           height={224}
