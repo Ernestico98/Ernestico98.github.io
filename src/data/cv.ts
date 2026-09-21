@@ -8,6 +8,9 @@ export const profile = {
   location: 'Barcelona, Spain',
   summary:
     'Software Engineer with 5+ years of experience building production ML systems, high-throughput data pipelines, and algorithmic solutions. Specialized in document AI, backend development, and cloud infrastructure (AWS). International competitive programming medalist (IOI, ICPC World Finals) with strong theoretical foundations in algorithms and computer science.',
+  // Cloudflare Email Routing alias, not the personal inbox: if it ever gets
+  // harvested and spammed, it can be deleted and replaced without touching it.
+  email: 'hi@ernestodavidph.com',
   github: 'https://github.com/ernestico98',
   linkedin: 'https://www.linkedin.com/in/ernestodavidph',
 }

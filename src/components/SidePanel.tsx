@@ -1,8 +1,8 @@
 import ernestoPhoto from '../assets/ernesto.jpg'
 import { profile } from '../data/cv'
 
-// No email here on purpose: a mailto on a public page gets harvested by spam
-// bots. Reach-out goes through LinkedIn instead.
+// The mailto is safe to publish because it points at a disposable routing
+// alias rather than the personal inbox — see profile.email.
 const links = [
   { label: 'GitHub', href: profile.github },
   { label: 'LinkedIn', href: profile.linkedin },
@@ -49,18 +49,28 @@ export function SidePanel() {
             {profile.location}
           </p>
         </div>
-        <div className="flex w-full gap-2 lg:mt-5 lg:flex-col">
-          {links.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              className="flex-1 rounded-lg border border-zinc-200 px-3 py-1.5 text-center text-sm text-zinc-700 transition hover:border-zinc-900 hover:text-zinc-900 lg:flex-none dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-400 dark:hover:text-zinc-100"
-            >
-              {label}
-            </a>
-          ))}
+        <div className="flex w-full flex-col gap-2 lg:mt-5">
+          {/* Primary action, deliberately inverted against the page: near-black
+              on the light theme, near-white on the dark one. */}
+          <a
+            href={`mailto:${profile.email}`}
+            className="rounded-lg bg-zinc-900 px-3 py-2 text-center text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+          >
+            Contact me
+          </a>
+          <div className="flex gap-2 lg:flex-col">
+            {links.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 rounded-lg border border-zinc-200 px-3 py-1.5 text-center text-sm text-zinc-700 transition hover:border-zinc-900 hover:text-zinc-900 lg:flex-none dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-400 dark:hover:text-zinc-100"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </aside>
