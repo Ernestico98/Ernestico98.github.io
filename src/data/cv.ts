@@ -237,8 +237,8 @@ export const stackLogos: { name: string; file: string }[] = [
 export const sections = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
+  { id: 'recognition', label: 'Recognition' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
   { id: 'stack', label: 'Stack' },
-  { id: 'recognition', label: 'Recognition' },
 ] as const

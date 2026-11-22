@@ -24,10 +24,10 @@ export default function App() {
         <main className="min-w-0 lg:order-1">
           <Hero />
           <Experience />
+          <Recognition />
           <Projects />
           <Education />
           <Stack />
-          <Recognition />
         </main>
       </div>
       <footer className="mx-auto max-w-5xl px-6 py-8 text-sm text-zinc-400 dark:text-zinc-600">
