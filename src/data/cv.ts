@@ -7,7 +7,7 @@ export const profile = {
   role: 'Software & AI Engineer',
   location: 'Barcelona, Spain',
   summary:
-    'Software Engineer with 5+ years of experience building production ML systems, high-throughput data pipelines, and algorithmic solutions. Specialized in document AI, backend development, and cloud infrastructure (AWS). International competitive programming medalist (IOI, ICPC World Finals) with strong theoretical foundations in algorithms and computer science.',
+    'Software Engineer with 5+ years of experience building production ML and LLM-based systems, high-throughput data pipelines, and algorithmic solutions. Specialized in document AI, backend development, and cloud infrastructure (AWS). IOI 2016 participant, 2x ICPC World Finalist, and regional medalist, with strong foundations in algorithms and computer science.',
   // Cloudflare Email Routing alias, not the personal inbox: if it ever gets
   // harvested and spammed, it can be deleted and replaced without touching it.
   email: 'hi@ernestodavidph.com',
@@ -35,23 +35,26 @@ export const experience: Experience[] = [
     logo: '/logos/invofox.svg',
     period: '01/2023 — Present',
     bullets: [
-      'Contributed to building a production pipeline handling 550K+ documents/day.',
-      'Built and maintained scalable APIs and services supporting the document processing platform.',
-      'Designed a graph-theoretic solver with A* search augmented by ML-based semantic heuristics, reducing search space and pipeline runtime.',
-      'Contributed to the design and implementation of a microservices architecture enabling high-volume document processing.',
-      'Integrated commercial OCR engines and LLMs with custom post-processing, and built a benchmarking framework comparing OCR, algorithmic, LLM and hybrid approaches on throughput, latency and accuracy.',
-      'Enhanced platform reliability through provider failover strategies, recovery procedures and observability monitoring.',
+      // Public page: same wording as LinkedIn, which keeps Invofox's internal
+      // metrics (550K+/day, 99.99%) and the solver's method out. The PDF CV
+      // carries the exact figures.
+      'Scaled the document-processing platform and its public APIs to hundreds of thousands of documents per day, driving throughput optimization and the migration to an AWS microservices architecture (Lambda, SQS, SNS).',
+      'Led the algorithmic extraction pipeline and co-designed the agentic extraction workflow, orchestrating LLMs across multiple providers (LiteLLM) with tool calling, RAG, and validation layers, with eval-driven iteration.',
+      'Designed a graph-search-based extraction solver with learned heuristics, reducing the search space by 70% and extraction runtime by 60%.',
+      'Built a benchmarking framework comparing OCR, algorithmic, LLM, and hybrid approaches on accuracy, throughput, and latency, used to select the extraction strategy per client use case.',
+      'Key contributor to platform reliability: failover across OCR and LLM providers, recovery procedures, and observability monitoring.',
+      "Team's go-to engineer for performance, profiling, and algorithmic design decisions; mentored 2 new engineers.",
     ],
   },
   {
-    role: 'Machine Learning Intern',
+    role: 'Machine Learning Research Intern',
     company: 'Docet TI',
     location: 'Barcelona, Spain · Remote',
     logo: '/logos/docet.svg',
     period: '07/2022 — 05/2023',
     bullets: [
-      'Integrated Deep Learning models (GANs, Diffusion Models) for automatic image generation in a content-creation pipeline.',
-      "Applied spectral decomposition of a GAN's latent space to uncover semantic directions, enabling controlled manipulations (age, pose, lighting).",
+      'Researched the latent spaces of pre-trained GANs (StyleGAN, StyleGAN2, BigGAN), applying spectral decomposition to discover unsupervised semantic directions for controlled image edits (age, pose, lighting).',
+      'Applied diffusion models for super-resolution of GAN outputs; extended the work into an M.Sc. capstone project.',
     ],
   },
   {
@@ -61,20 +64,22 @@ export const experience: Experience[] = [
     logo: '/logos/uo.svg',
     period: '01/2022 — 07/2022',
     bullets: [
-      'Lectured Algorithms Design & Analysis (Divide and Conquer, Greedy, Complexity) and Discrete Mathematics (Number Theory, Graph Theory, Combinatorics).',
-      'Conducted research in NLP and Sentiment Analysis.',
+      'Taught Design and Analysis of Algorithms (divide and conquer, greedy, complexity) and Discrete Mathematics (number theory, combinatorics, graph theory) to groups of 30–40 undergraduate CS students.',
+      'Coached 2 university ICPC teams, one of which advanced to the ICPC Caribbean Finals.',
+      'Conducted deep learning NLP research on social media sentiment analysis, using recurrent networks and attention.',
     ],
   },
   {
-    role: 'Algorithms Engineer',
+    role: 'Algorithms Engineer (Contract)',
     company: 'Encord Technologies (YC W21)',
     companyUrl: 'https://encord.com',
     location: 'United Kingdom · Remote',
     logo: '/logos/encord.svg',
     period: '06/2020 — 12/2021',
     bullets: [
-      'Designed algorithmic procedures to accelerate automatic data annotation.',
-      'Optimized ML pipelines across Computer Vision and Computational Geometry projects.',
+      'Worked directly with the CTO in a two-engineer team on computer vision and geometry algorithms for auto-labeling.',
+      'Developed object tracking, polygon interpolation and simplification, and annotation ontology translation algorithms.',
+      'Built detection models for medical imaging (DICOM) using Python, OpenCV, and fastai.',
     ],
   },
 ]
@@ -109,7 +114,7 @@ export type Award = { title: string; detail: string; year: string }
 export const awards: Award[] = [
   {
     title: 'International Olympiad in Informatics (IOI)',
-    detail: 'Honorable Mention — Kazan, Russia',
+    detail: 'Contestant — Kazan, Russia',
     year: '2016',
   },
   {
@@ -118,7 +123,7 @@ export const awards: Award[] = [
     year: '2018 · 2019',
   },
   {
-    title: 'ICPC Latin America Regional Finals',
+    title: 'ICPC Caribbean Finals',
     detail: 'Silver Medal in 2017 and 2018',
     year: '2017 · 2018',
   },
@@ -161,9 +166,7 @@ export const stackLogos: { name: string; file: string }[] = [
   { name: 'JavaScript', file: 'javascript.svg' },
   { name: 'React', file: 'react.svg' },
   { name: 'Node.js', file: 'nodedotjs.svg' },
-  { name: 'Django', file: 'django.svg' },
   { name: 'Flask', file: 'flask.svg' },
-  { name: 'Laravel', file: 'laravel.svg' },
   { name: 'AWS', file: 'aws.svg' },
   { name: 'Docker', file: 'docker.svg' },
   { name: 'MongoDB', file: 'mongodb.svg' },
