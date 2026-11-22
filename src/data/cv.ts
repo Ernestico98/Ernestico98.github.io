@@ -84,6 +84,67 @@ export const experience: Experience[] = [
   },
 ]
 
+/** A bullet may open with a bold lead-in, e.g. { lead: 'Design', text: '…' }. */
+export type Bullet = string | { lead: string; text: string }
+
+export type Project = {
+  name: string
+  /** Shown while the card is collapsed; keep it under ~45 chars so it fits on a phone. */
+  tagline: string
+  year: string
+  bullets: Bullet[]
+  tech: string[]
+  links: { label: string; href: string }[]
+}
+
+export const projects: Project[] = [
+  {
+    name: 'Mocksy',
+    tagline: 'Voice AI interviewer that reads your whiteboard',
+    year: '2026',
+    bullets: [
+      'Built a voice mock-interview tool with hands-free turn-taking and barge-in, running speech-to-text (Whisper) and text-to-speech (Kokoro) locally.',
+      'Streamed replies from a sandboxed Claude Code process sentence by sentence, so the interviewer starts speaking before it finishes thinking.',
+      'Encoded the Excalidraw whiteboard as compact text diffs sent every turn, letting the interviewer follow the diagram and probe trade-offs; a second model grades the session against a rubric.',
+    ],
+    tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Whisper', 'Kokoro', 'Excalidraw', 'Claude Code'],
+    links: [{ label: 'repo', href: 'https://github.com/Ernestico98/mocksy' }],
+  },
+  {
+    name: 'Carta',
+    tagline: 'Tablet menus: design, content and devices',
+    year: '2026',
+    bullets: [
+      {
+        lead: 'Design',
+        text: "a drag-and-drop editor for the menu's look (brand fonts, colors, ready-made themes), previewed on the exact tablet screen in portrait or landscape.",
+      },
+      {
+        lead: 'Menus',
+        text: 'dishes, prices, photos and sold-out items in one place; one publish updates every tablet in seconds, and managers can edit from any guest tablet behind a PIN.',
+      },
+      {
+        lead: 'Tablets',
+        text: 'an Android app (Capacitor) for the devices, plus a fleet view showing which tablets are online and current, with remote restart and update.',
+      },
+    ],
+    tech: ['TypeScript', 'React', 'Fastify', 'SQLite', 'WebSockets', 'Capacitor'],
+    links: [{ label: 'showcase', href: 'https://ernestodavidph.com/carta/' }],
+  },
+  {
+    name: 'PixelLift',
+    tagline: 'GAN image-editing web app · M.Sc. capstone',
+    year: '2023',
+    bullets: [
+      'Co-built a web app for GAN-based image editing: latent-space projection, PCA-based semantic edits, and super-resolution.',
+      'Isolated each model in its own Docker container behind a Redis queue, streaming job progress to the browser over WebSockets.',
+      'M.Sc. capstone at Harbour.Space, extending the GAN latent-space research from the Docet TI internship.',
+    ],
+    tech: ['Python', 'PyTorch', 'Flask', 'Angular', 'PostgreSQL', 'Redis', 'Docker'],
+    links: [{ label: 'repo', href: 'https://github.com/yordanlp/CapstoneProject' }],
+  },
+]
+
 export type Education = {
   degree: string
   school: string
@@ -176,7 +237,8 @@ export const stackLogos: { name: string; file: string }[] = [
 export const sections = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
-  { id: 'recognition', label: 'Recognition' },
   { id: 'stack', label: 'Stack' },
+  { id: 'recognition', label: 'Recognition' },
 ] as const

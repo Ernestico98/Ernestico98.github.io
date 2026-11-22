@@ -5,6 +5,7 @@ import { useHashScroll } from './hooks/useHashScroll'
 import { Education } from './sections/Education'
 import { Experience } from './sections/Experience'
 import { Hero } from './sections/Hero'
+import { Projects } from './sections/Projects'
 import { Recognition } from './sections/Recognition'
 import { Stack } from './sections/Stack'
 
@@ -23,6 +24,7 @@ export default function App() {
         <main className="min-w-0 lg:order-1">
           <Hero />
           <Experience />
+          <Projects />
           <Education />
           <Stack />
           <Recognition />
